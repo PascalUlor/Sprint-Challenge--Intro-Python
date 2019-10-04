@@ -14,10 +14,35 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
+import os
+
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in %r: %s" % (cwd, files))
+os.chdir(r'src/cityreader')
+
 cities = []
+
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = float(lat)
+    self.lon = float(lon)
+
+  def __str__(self):
+    return f"list {self.name} {self.lat} {self.lon}"
+
+  def __repr__(self):
+    return f"{self.name} {self.lat} {self.lon}"
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
+    with open('cities.csv', newline='') as doc:
+        docreader = csv.DictReader(doc, delimiter=',', quotechar='|')
+        for row in docreader:
+          record = City(row['city'], row['lat'], row['lng'])
+          cities.append(record)
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     
