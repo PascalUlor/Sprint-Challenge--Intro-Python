@@ -2,6 +2,7 @@ import unittest
 from comp import *
 
 def compare_humans(inp, exp):
+  print('*****************', inp, '===============', exp)
   if len(inp) != len(exp):
     return False
   for i in range(len(inp)):
