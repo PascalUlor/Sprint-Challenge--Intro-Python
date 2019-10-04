@@ -15,12 +15,12 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 import csv
-import os
+# import os
 
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
-os.chdir(r'src/cityreader')
+# cwd = os.getcwd()  # Get the current working directory (cwd)
+# files = os.listdir(cwd)  # Get all the files in that directory
+# print("Files in %r: %s" % (cwd, files))
+# os.chdir(r'src/cityreader')
 
 cities = []
 
